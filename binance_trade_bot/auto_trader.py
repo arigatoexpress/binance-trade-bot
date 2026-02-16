@@ -128,9 +128,10 @@ class AutoTrader:
                 transaction_fee = self.manager.get_fee(pair.from_coin, self.config.BRIDGE, True) + self.manager.get_fee(
                     pair.to_coin, self.config.BRIDGE, False
                 )
-            catch:
-                
-                pass
+            except Exception as e:  # pylint: disable=broad-except
+                # Fee lookup should never break scouting; treat as 0 fee and keep going.
+                self.logger.warning(f"Failed to compute transaction fee for {pair}: {e}")
+                transaction_fee = 0.0
 
             if self.config.USE_MARGIN == "yes":
                 ratio_dict[pair] = (
