@@ -1,6 +1,6 @@
 # binance-trade-bot — Agent Notes
 
-Status: FORK
+Status: ARCHIVED (fork, superseded by `arigatoexpress/Sapphire`)
 Remote: https://github.com/arigatoexpress/binance-trade-bot.git
 Upstream: https://github.com/ccxt/binance-trade-bot.git
 
